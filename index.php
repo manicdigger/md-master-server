@@ -11,10 +11,11 @@ if(isset($_SESSION["username"])) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
-	<title>Manic Digger</title>
+	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/style.css" rel="stylesheet" media="screen">
+	<title>Manic Digger</title>
 </head>
 <body>
 	<div class="container">
