@@ -5,7 +5,7 @@ require_once "Vars.php";
 class Utility {
 
 	public static function getSQLConnection() {
-		if($mysqli == null) {
+		if(!isset($mysqli)) {
 			$mysqli = new mysqli(Config::dbserver,Config::dbusername,Config::dbpassword,Config::dbname);
 			if ($mysqli->connect_errno) {
 				trigger_error($mysqli->error,E_USER_ERROR);
