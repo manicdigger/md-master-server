@@ -10,6 +10,10 @@ class Utility {
 			if ($mysqli->connect_errno) {
 				trigger_error($mysqli->error,E_USER_ERROR);
 			}
+			//Set UTF8 charset
+			if (!$mysqli->set_charset("utf8")) {
+				trigger_error($mysqli->error,E_USER_ERROR);
+			}
 		}
 		return $mysqli;
 	}
