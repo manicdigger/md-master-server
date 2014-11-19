@@ -17,7 +17,7 @@ if(isset($_SESSION["username"])) {
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 	<link href="css/style.css" rel="stylesheet" media="screen">
-	<title>Manic Digger</title>
+	<title>Manic Digger - Servers</title>
 </head>
 <body>
 	<div class="container">
@@ -26,18 +26,20 @@ if(isset($_SESSION["username"])) {
 			<div class="col-md-6">
 				<div class="login-box">
 					<div id="logged-out" class="<?php if($loggedIn) { echo "hide"; }?>">
-						<form id="login" action="loginuser.php" method="post" class="form-inline login-form">
-							<div>
-								<input name="username" type="text" class="form-control" placeholder="Username" />
-								<input name="password" type="password" class="form-control" placeholder="Password" />
-								<div class="checkbox">
-								<label>
-									<input name="rememberme" type="checkbox" /> Remember me
-								</label>
-								</div>
+						<form id="login" action="loginuser.php" method="post" class="form-inline login-form" role="form">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Username">
 							</div>
-							<p>
-							<div>
+							<div class="form-group">
+								<input type="password" class="form-control" placeholder="Password">
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> Remember me
+								</label>
+							</div>
+							<p></p>
+							<div class="form-group">
 								<button type="submit" name="submit" class="btn btn-primary">Sign in</button>
 								<a data-target="#create-account-modal" role="button" class="btn btn-default btn-sm" data-toggle="modal">Create Account</a>
 							</div>
