@@ -26,12 +26,12 @@ if(isset($_SESSION["username"])) {
 			<div class="col-md-6">
 				<div class="login-box">
 					<div id="logged-out" class="<?php if($loggedIn) { echo "hide"; }?>">
-						<form id="login" action="loginuser.php" method="post" class="form-inline login-form" role="form">
+						<form id="login" action="loginuser.php" method="post" accept-charset="UTF-8" class="form-inline login-form" role="form">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Username">
+								<input name="username" type="text" class="form-control" placeholder="Username">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password">
+								<input name="password" type="password" class="form-control" placeholder="Password">
 							</div>
 							<div class="checkbox">
 								<label>
