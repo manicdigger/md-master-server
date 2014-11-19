@@ -231,7 +231,7 @@ class Server {
 		$sql .= "max_clients, public, password_protected, allow_guests, user_count, ";
 		$sql .= "user_list, motd, game_mode, last_heartbeat_date, created_date ";
 		$sql .= "FROM servers ";
-		$sql .= "WHERE last_heartbeat_date > (NOW() - INTERVAL 8 HOUR) ";
+		$sql .= "WHERE last_heartbeat_date > (NOW() - INTERVAL 2 HOUR) ";
 		$sql .= "ORDER BY last_heartbeat_date DESC";
 		
 		//Prepare query to find server
