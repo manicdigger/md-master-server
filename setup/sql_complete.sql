@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(16) COLLATE utf8_bin NOT NULL,
-  `password_hash` varchar(32) COLLATE utf8_bin NOT NULL,
+  `password_hash` varchar(100) COLLATE utf8_bin NOT NULL,
   `email` varchar(32) COLLATE utf8_bin NOT NULL,
   `joined_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_login_date` datetime NOT NULL
