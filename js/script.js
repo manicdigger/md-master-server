@@ -40,10 +40,16 @@ $(document).ready(function() {
 		$("#username-check").html(checkUsername($("#create-username").val()));
 	});
 	$("#create-password").keyup(function(){
-		$("#password-check").html(checkPasswordStrength($("#create-password").val(),"password-check"));
+		$("#password-check").html(checkPasswordStrength("#create-password","#password-check"));
 	});
 	$("#create-password-again").keyup(function(){
 		$("#password-match").html(checkPasswordMatch("#password-match","#create-password","#create-password-again"));
+	});
+	$("#update-new-password").keyup(function(){
+		$("#update-password-check").html(checkPasswordStrength("#update-new-password","#update-password-check"));
+	});
+	$("#update-new-password-again").keyup(function(){
+		$("#update-password-match").html(checkPasswordMatch("#update-password-match","#update-new-password","#update-new-password-again"));
 	});
 	
 	function createAccount() {
@@ -133,11 +139,11 @@ $(document).ready(function() {
 		}
 		if(username.length > 16) {
 			result.removeClass();
-			result.addClass("label label-important");
+			result.addClass("label label-danger");
 			return "Too long";
 		} else if(username.match(/^(\w|-){1,16}$/) === null) {
 			result.removeClass();
-			result.addClass("label label-important");
+			result.addClass("label label-danger");
 			return "Allowed characters: a-z,A-Z,0-9,-,_";
 		} else {
 			result.removeClass();
@@ -146,9 +152,10 @@ $(document).ready(function() {
 		}
 	}
 	
-	function checkPasswordStrength(password, resultId) {
+	function checkPasswordStrength(passwordId, resultId) {
 	    var strength = 0;
 		var result = $(resultId);
+		var password = $(passwordId).val();
 	
 		if(password.length === 0) {
 			result.removeClass();
@@ -158,7 +165,7 @@ $(document).ready(function() {
 	
 		if(password.length < 6) {
 			result.removeClass();
-			result.addClass("label label-important");
+			result.addClass("label label-danger");
 			return "Too short";
 		}
 
@@ -178,7 +185,7 @@ $(document).ready(function() {
 
 		if(strength < 2) {
 			result.removeClass();
-			result.addClass("label label-important");
+			result.addClass("label label-danger");
 			return "Weak"
 		} else if(strength == 2) {
 			result.removeClass();
@@ -192,19 +199,15 @@ $(document).ready(function() {
 	}
 	
 	function checkPasswordMatch(resultId, passwordId, passwordAgainId) {
-		//var result = $("#password-match");
-		//var password = $("#create-password");
-		//var passwordAgain = $("#create-password-again");
-		
 		var result = $(resultId);
-		var password = $(passwordId);
-		var passwordAgain = $(passwordAgainId);
+		var password = $(passwordId).val();
+		var passwordAgain = $(passwordAgainId).val();
 		
-		if(password.val().length === 0) {
+		if(password.length === 0) {
 			result.removeClass();
 			result.addClass("label hide");
 			return "";
-		} else if(password.val() !== passwordAgain.val()) {
+		} else if(password !== passwordAgain) {
 			result.removeClass();
 			result.addClass("label label-warning");
 			return "Doesn't match";
